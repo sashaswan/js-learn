@@ -238,7 +238,7 @@ b15.onclick = function f15() {
             out15.innerHTML = i151 || i152;
             break;
         case '||':
-            out15.innerHTML = i151 && i151;
+            out15.innerHTML = i151 && i152;
             break;
     }
 }
