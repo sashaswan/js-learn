@@ -235,10 +235,10 @@ b15.onclick = function f15() {
     let s153 = document.querySelector('.s-153').value;
     switch (s153) {
         case '&&':
-            out15.innerHTML = i151 || i152;
+            out15.innerHTML = i151 && + i152;
             break;
         case '||':
-            out15.innerHTML = i151 && i152;
+            out15.innerHTML = i151 || + i152;
             break;
     }
 }
