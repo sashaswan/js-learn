@@ -1,170 +1,192 @@
-
-
-// let div = document.querySelectorAll('.one');
-
-// for (let i = 0; i < div.length; i++) {
-//     div[i].style.background = 'red';
-//     div[i].onclick = two; 
-// }
-
-// function two() {
-//     console.log('work!');
-// }
-
-// let b = document.getElementsByClassName('one');
-// let c = document.getElementsByTagName('div');
-// console.log(b);
-// console.log(c);
-
-// for (let i = 0; i < b.length; i++) {
-//     b[i].style.border = '1px solid black';
-// }
-
-// document.querySelector('button').onclick = () => {
-//     let r = document.querySelectorAll('input[type="radio"]');
-//     for (let i = 0; i < r.length; i++) {
-//         if (r[i].checked) {
-//             console.log(r[i].value);
-//         }
+let out = document.querySelector('.out');
+// for (let i = 0; i < 5; i++) {
+//     for (let k = 0; k < 10; k++) {
+//         out.innerHTML += '*';
 //     }
+//     out.innerHTML += '<br>';
 // }
-// let out = '';
-// for (let i = 0; i < 10; i++) {
-//     if (i == 6) continue;
-//     out += i + ' ';
-//     // if (i == 6) break;
+
+// for (let i = 1; i < 10; i++) {
+//     // out.innerHTML += '3*' + i + '=' + (i * 3) +'<br>';
+//     for (let k = 1; k < 10; k++) {
+//         out.innerHTML += `${i}*${k}=${k*i}<br>`; // interpolation
+//     }
+//     out.innerHTML += '<hr>';
 // }
-// document.querySelector('#out').innerHTML = out;
+
 // Task 1
-document.querySelector('.b-1').onclick = () => {
-    for (i = 1; i < 51; i++) {
-        document.querySelector('.out-1').innerHTML += i + ' ';
+let out2 = document.querySelector('.out-2');
+for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 3; i++) {
+        out2.innerHTML += '*';
     }
+    out2.innerHTML += '_ ';
 }
 // Task 2
-document.querySelector('.b-2').onclick = () => {
-    for (i = 2; i < 51; i += 2) {
-        document.querySelector('.out-2').innerHTML += i + ' ';
+let out3 = document.querySelector('.out-3');
+for (let i = 1; i < 4; i++) {
+    out3.innerHTML += `<br> ${i} <br>`;
+    for (let k = 1; k < 4; k++) {
+        out3.innerHTML += `*_`;
     }
 }
 // Task 3
-document.querySelector('.b-3').onclick = () => {
-    for (i = 25; i > 6; i--) {
-        document.querySelector('.out-3').innerHTML += i + ' ';
+let out4 = document.querySelector('.out-4');
+for (let i = 1; i < 4; i++) {
+    out4.innerHTML += '<br>';
+    for (let k = 1; k < 4; k++) {
+        out4.innerHTML += `*_`;
     }
 }
 // Task 4
-document.querySelector('.b-4').onclick = () => {
-    for (i = 77; i > 34; i -= 3) {
-        document.querySelector('.out-4').innerHTML += i + '_';
+let out5 = document.querySelector('.out-5');
+for (let i = 1; i < 4; i++) {
+    out5.innerHTML += `${i}_`;
+    for (let k = 1; k < 6; k++) {
+        out5.innerHTML += `${k + ' '}`;
     }
 }
 // Task 5
-document.querySelector('.b-5').onclick = () => {
-    for (i = 1; i < 18; i++) {
-        if (i % 2 == 1) {
-            document.querySelector('.out-5').innerHTML += i + '_*';
-        }
-        else {
-            document.querySelector('.out-5').innerHTML += i + '_**';
-        }
+let out6 = document.querySelector('.out-6');
+for (let i = 1; i < 4; i++) {
+    out6.innerHTML += '<br>';
+    for (let k = 1; k < 4; k++) {
+        out6.innerHTML += `${1}${0}`;
     }
 }
 // Task 6
-document.querySelector('.b-6').onclick = () => {
-    let i6 = document.querySelector('.i-6');
-    let count = 0;
-    document.querySelector('.out-6').innerHTML = '';
-    for (let i = 0; i < i6.value; i++) {
-        document.querySelector('.out-6').innerHTML += '******' + '<br>';
-        count += 1;
+let out7 = document.querySelector('.out-7');
+for (let i = 1; i < 4; i++) {
+    for (let k = 1; k < 7; k++) {
+        if ((k % 2 == 0) && !(k % 3 == 0)) {
+            out7.innerHTML += '0';
+        } else if ((k % 2 == 1) && !(k % 3 == 0)) {
+            out7.innerHTML += '1';
+        } else {
+            out7.innerHTML += 'x';
+        }
     }
-    i6.value = count;
+    out7.innerHTML += '<br>';
 }
 // Task 7
-document.querySelector('.b-7').onclick = () => {
-    let i7 = document.querySelector('.i-7');
-    for (let i = i7.value; i >= 0; i--) {
-        document.querySelector('.out-7').innerHTML += i + ' ';
+let out8 = document.querySelector('.out-8');
+for (let i = 1; i < 5; i++) {
+    out8.innerHTML += '<br>';
+    for (let k = 0; k < i; k++) {
+        out8.innerHTML += '*';
     }
 }
+
 // Task 8
-
-document.querySelector('.b-8').onclick = () => {
-    let i81 = +document.querySelector('.i-81').value;
-    let i82 = +document.querySelector('.i-82').value;
-    c = i81;
-    for (let i = i81; i <= i82; i++) {
-        document.querySelector('.out-8').innerHTML += c++ + " ";;
+let out9 = document.querySelector('.out-9');
+for (let i = 5; i >= 0; i--) {
+    out9.innerHTML += '<br>';
+    for (let k = 0; k < i; k++) {
+        out9.innerHTML += '*';
     }
 }
-
 // Task 9
-
-document.querySelector('.b-9').onclick = () => {
-    let i91 = +document.querySelector('.i-91').value;
-    let i92 = +document.querySelector('.i-92').value;
-    let start = Math.min(i91, i92);
-    let end = Math.max(i91, i92);
-
-    for (let i = start; i <= end; i++) {
-        document.querySelector('.out-9').innerHTML += i + ' ';;;
+let out10 = document.querySelector('.out-10');
+for (let i = 1; i < 7; i++) {
+    out10.innerHTML += '<br>';
+    for (let k = 1; k < i; k++) {
+        out10.innerHTML += `${k}` + ' ';
     }
 }
-
-//Task 10
-document.querySelector('.b-10').onclick = () => {
-    for (i = 1950; i < 2000; i++) {
-        if (i % 2 == 0) {
-            document.querySelector('.out-10').innerHTML += i;
+// Task 10
+let out11 = document.querySelector('.out-11');
+for (let i = 0; i < 5; i++) {
+    out11.innerHTML += '<br>';
+    for (let k = 1; k <= 10; k++) {
+        let s = i * 10;
+        if (k < 10 && i == 0) {
+            out11.innerHTML += `0${k} `;
+        }
+        else {
+            out11.innerHTML += `${+s + k} `;
         }
     }
 }
-// Task 11
-let div = document.querySelectorAll('.div-11');
-document.querySelector('.b-11').onclick = () => {
-    let out11 = document.querySelector('.out-11');
-    for (i = 0; i < div.length; i++) {
-        out11.innerHTML += div[i].innerHTML + ' ';
+// Task 1
+let out12 = document.querySelector('.out-12');
+for (let i = 1; i < 10; i++) {
+    for (let k = 1; k < 10; k++) {
+        out12.innerHTML += `${i}*${k}=${k * i}<br>`;
     }
+    out12.innerHTML += '<hr>';
 }
-// Task 12
-let div1 = document.querySelectorAll('.div-12');
-document.querySelector('.b-12').onclick = () => {
-    for (i = 0; i < div.length; i++) {
-        div1[i].style.background = 'orange';
+// Task 2
+let out13 = document.querySelector('.out-13');
+for (let i = 1; i < 5; i++) {
+    for (let k = 0; k < 5; k++) {
+        out13.innerHTML += '*';
     }
+    out13.innerHTML += '<br>';
 }
-
-
-
-// Task 13
-let input_13 = document.querySelectorAll('.i-13');
-function t13() {
-    for (let i = 0; i <= input_13.length; i++){
-        input_13[i].value = i + 1;   
-    } 
+// Task 3
+let out14 = document.querySelector('.out-14');
+for (let i = 5; i >= 0; i--) {
+    for (let k = 0; k < i; k++) {
+        out14.innerHTML += '*';
+    }
+    out14.innerHTML += '<br>';
 }
-document.querySelector('.b-14').onclick = t13;
-
-// Task 14
-
-document.querySelector('.b-13').onclick = () => {
-    let inputs = document.querySelectorAll('.i-4');
-    let out13 = '';
-
-    for (let i = 0; i < inputs.length; i++) {
-        if (inputs[i].checked) {
-            out13 = inputs[i].value;
+// Task 4
+let out15 = document.querySelector('.out-15');
+let z = 2;
+let b = 7;
+for (let i = 0; i < 3; i++) {
+    for (let k = 0; k < b; k++) {
+        if (k < z) {
+            out15.innerHTML += '&nbsp';
+        } else {
+            out15.innerHTML += '*';
         }
-        document.querySelector('.out-13').innerHTML += out13;
     }
+    b--;
+    z--;
+    out15.innerHTML += '<br>';
+}
+// Task 5
+let out16 = document.querySelector('.out-16');
+let colsLoop = 2;
+
+for (let i = 1; i <= 3; i++) {
+
+    for (let k = 1; k <= i; k++) {
+        out16.innerHTML += '*';
+    }
+    out16.innerHTML += '<br>';
 }
 
-// Task 15
-document.querySelector('.b-15').onclick = () => {
-    let out15 = document.querySelector('.out-15');
-    for (let i = 0; i < 11; i++) { 
-        out15.innerHTML += 10-i + ' ' + i + ' '; 
+for (let i = 1; i >= 0; i--) {
+    for (let k = 2; k >= 2 - i; k--) {
+        out16.innerHTML += '*';
     }
+    out16.innerHTML += '<br>';
+}
+
+// Task 6
+let out17 = document.querySelector('.out-17');
+let q = 5;
+for (let i = 0; i < 5; i++) {
+    for (let k = 0; k < 8; k++) {
+        if ((k > q) && ((i == 0) || (i == 4))) {
+            out17.innerHTML += `&nbsp;`;
+        } else if (((k > 0) && (k < 7)) && ((i > 0) && (i < 4))) {
+            out17.innerHTML += `&nbsp;&nbsp;`;
+        } else {
+            out17.innerHTML += `*`;
+        }
+    }
+    out17.innerHTML += `<br>`;
+}
+// Task 7
+let out18 = document.querySelector('.out-18');
+
+for (let i = 5; i > 0; i--) {
+    for (let k = i; k > 0; k--) {
+        out18.innerHTML += k + ' ';
+    }
+    out18.innerHTML += '<br>';
 }
