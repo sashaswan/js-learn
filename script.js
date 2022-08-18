@@ -1,192 +1,94 @@
-let out = document.querySelector('.out');
-// for (let i = 0; i < 5; i++) {
-//     for (let k = 0; k < 10; k++) {
-//         out.innerHTML += '*';
-//     }
-//     out.innerHTML += '<br>';
-// }
+let a1 = 8;
+let out1 = document.querySelector('.out-1');
+function t1() {
+    out1.innerHTML = a1;
+}
+document.querySelector('.b-1').onclick = t1;
 
-// for (let i = 1; i < 10; i++) {
-//     // out.innerHTML += '3*' + i + '=' + (i * 3) +'<br>';
-//     for (let k = 1; k < 10; k++) {
-//         out.innerHTML += `${i}*${k}=${k*i}<br>`; // interpolation
-//     }
-//     out.innerHTML += '<hr>';
-// }
-
-// Task 1
-let out2 = document.querySelector('.out-2');
-for (let i = 0; i < 3; i++) {
-    for (let i = 0; i < 3; i++) {
-        out2.innerHTML += '*';
-    }
-    out2.innerHTML += '_ ';
+let a2 = 8;
+function f2() {
+    return a2;
 }
-// Task 2
-let out3 = document.querySelector('.out-3');
-for (let i = 1; i < 4; i++) {
-    out3.innerHTML += `<br> ${i} <br>`;
-    for (let k = 1; k < 4; k++) {
-        out3.innerHTML += `*_`;
-    }
-}
-// Task 3
-let out4 = document.querySelector('.out-4');
-for (let i = 1; i < 4; i++) {
-    out4.innerHTML += '<br>';
-    for (let k = 1; k < 4; k++) {
-        out4.innerHTML += `*_`;
-    }
-}
-// Task 4
-let out5 = document.querySelector('.out-5');
-for (let i = 1; i < 4; i++) {
-    out5.innerHTML += `${i}_`;
-    for (let k = 1; k < 6; k++) {
-        out5.innerHTML += `${k + ' '}`;
-    }
-}
-// Task 5
-let out6 = document.querySelector('.out-6');
-for (let i = 1; i < 4; i++) {
-    out6.innerHTML += '<br>';
-    for (let k = 1; k < 4; k++) {
-        out6.innerHTML += `${1}${0}`;
-    }
-}
-// Task 6
-let out7 = document.querySelector('.out-7');
-for (let i = 1; i < 4; i++) {
-    for (let k = 1; k < 7; k++) {
-        if ((k % 2 == 0) && !(k % 3 == 0)) {
-            out7.innerHTML += '0';
-        } else if ((k % 2 == 1) && !(k % 3 == 0)) {
-            out7.innerHTML += '1';
-        } else {
-            out7.innerHTML += 'x';
-        }
-    }
-    out7.innerHTML += '<br>';
-}
-// Task 7
-let out8 = document.querySelector('.out-8');
-for (let i = 1; i < 5; i++) {
-    out8.innerHTML += '<br>';
-    for (let k = 0; k < i; k++) {
-        out8.innerHTML += '*';
-    }
+document.querySelector('.b-2').onclick = function () {
+    document.querySelector('.out-2').textContent = f2();
 }
 
-// Task 8
-let out9 = document.querySelector('.out-9');
-for (let i = 5; i >= 0; i--) {
-    out9.innerHTML += '<br>';
-    for (let k = 0; k < i; k++) {
-        out9.innerHTML += '*';
-    }
+function t3(a, b) {
+    return a + b;
 }
-// Task 9
-let out10 = document.querySelector('.out-10');
-for (let i = 1; i < 7; i++) {
-    out10.innerHTML += '<br>';
-    for (let k = 1; k < i; k++) {
-        out10.innerHTML += `${k}` + ' ';
-    }
+document.querySelector('.b-3-1').onclick = function () {
+    document.querySelector('.out-3-1').textContent = t3(3, 4);
 }
-// Task 10
-let out11 = document.querySelector('.out-11');
-for (let i = 0; i < 5; i++) {
-    out11.innerHTML += '<br>';
-    for (let k = 1; k <= 10; k++) {
-        let s = i * 10;
-        if (k < 10 && i == 0) {
-            out11.innerHTML += `0${k} `;
-        }
-        else {
-            out11.innerHTML += `${+s + k} `;
-        }
-    }
-}
-// Task 1
-let out12 = document.querySelector('.out-12');
-for (let i = 1; i < 10; i++) {
-    for (let k = 1; k < 10; k++) {
-        out12.innerHTML += `${i}*${k}=${k * i}<br>`;
-    }
-    out12.innerHTML += '<hr>';
-}
-// Task 2
-let out13 = document.querySelector('.out-13');
-for (let i = 1; i < 5; i++) {
-    for (let k = 0; k < 5; k++) {
-        out13.innerHTML += '*';
-    }
-    out13.innerHTML += '<br>';
-}
-// Task 3
-let out14 = document.querySelector('.out-14');
-for (let i = 5; i >= 0; i--) {
-    for (let k = 0; k < i; k++) {
-        out14.innerHTML += '*';
-    }
-    out14.innerHTML += '<br>';
-}
-// Task 4
-let out15 = document.querySelector('.out-15');
-let z = 2;
-let b = 7;
-for (let i = 0; i < 3; i++) {
-    for (let k = 0; k < b; k++) {
-        if (k < z) {
-            out15.innerHTML += '&nbsp';
-        } else {
-            out15.innerHTML += '*';
-        }
-    }
-    b--;
-    z--;
-    out15.innerHTML += '<br>';
-}
-// Task 5
-let out16 = document.querySelector('.out-16');
-let colsLoop = 2;
-
-for (let i = 1; i <= 3; i++) {
-
-    for (let k = 1; k <= i; k++) {
-        out16.innerHTML += '*';
-    }
-    out16.innerHTML += '<br>';
+document.querySelector('.b-3-2').onclick = function () {
+    document.querySelector('.out-3-2').textContent = t3(5, 6);
 }
 
-for (let i = 1; i >= 0; i--) {
-    for (let k = 2; k >= 2 - i; k--) {
-        out16.innerHTML += '*';
-    }
-    out16.innerHTML += '<br>';
+let n = 2022;
+let y = 2001;
+function t4(y, n) {
+    return n-y;
+}
+document.querySelector('.b-4').onclick = function () {
+    document.querySelector('.out-4').textContent = t4(y,n);
 }
 
-// Task 6
-let out17 = document.querySelector('.out-17');
-let q = 5;
-for (let i = 0; i < 5; i++) {
-    for (let k = 0; k < 8; k++) {
-        if ((k > q) && ((i == 0) || (i == 4))) {
-            out17.innerHTML += `&nbsp;`;
-        } else if (((k > 0) && (k < 7)) && ((i > 0) && (i < 4))) {
-            out17.innerHTML += `&nbsp;&nbsp;`;
-        } else {
-            out17.innerHTML += `*`;
-        }
-    }
-    out17.innerHTML += `<br>`;
+let yourName = 'Sasha';
+function t5(yourName) {
+    return 'Hello ' +yourName;
 }
-// Task 7
-let out18 = document.querySelector('.out-18');
+document.querySelector('.b-5').onclick = function () {
+    document.querySelector('.out-5').textContent = t5(yourName);
+}
 
-for (let i = 5; i > 0; i--) {
-    for (let k = i; k > 0; k--) {
-        out18.innerHTML += k + ' ';
+let min = 4;
+let max = 9;
+function t6(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+document.querySelector('.b-6').onclick = function () {
+    document.querySelector('.out-6').textContent = t6(min,max);
+}
+
+function t7() {
+    return `rgb(${Math.random()*256<<0}, ${Math.random()*256<<0}, ${Math.random()*256<<0})`;
+}
+document.querySelector('.b-7').onclick = function () {
+    document.querySelector('.out-7').textContent = t7();
+}
+let s = '  Alex Swan  ';
+function t8(s) {
+    return s.trim();
+}
+document.querySelector('.b-8').onclick = function () {
+    document.querySelector('.out-8').textContent = t8(s);
+}
+
+t = 10;
+function t9(t) {
+    if (t % 2 == 0) {
+        return true;
     }
-    out18.innerHTML += '<br>';
+    else {
+        return false;
+    }
+}
+document.querySelector('.b-9').onclick = function () {
+    document.querySelector('.out-9').textContent = t9(t);
+}
+
+f = 3;
+g = 5;
+function t10(f,g) {
+    if (f > g) {
+        return f;
+    }
+    else if (f == g) {
+        return f||g;
+    }
+    else {
+        return g;
+    }
+}
+document.querySelector('.b-10').onclick = function () {
+    document.querySelector('.out-10').textContent = t10(f,g);
 }
