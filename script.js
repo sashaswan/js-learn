@@ -1,256 +1,368 @@
-// const a = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-// const b = ['a', 'b', 'c', 'd', 'e', 'f'];
+// let a = [4, 5, 6];
+// let b = [
+//     [1, 2, 3],
+//     [4, 5, 6],
+//     [7, 8, 9],
+// ];
+// //console.log(b);
 
-// console.log(a.length);
-// console.log(a.push(10));
-// console.log(a);
+// // for (let i = 0; i < b.length; i++) {
+// //     //console.log(b[i]);
+// //     let c = b[i];  // с - массив [1,2,3]
+// //     for (let k = c.length - 1; k >= 0; k--) {
+// //         console.log(c[k]);
+// //     }
+// // }
 
-// b.push('j', 'e');
-// console.log(b);
+// let out = '';
 
-// b.pop();
-// console.log(b);
+// for (let i = 0; i < b.length; i++) {
+//     for (let k = 0; k < b[i].length; k++) {
+//         //console.log(b[i][k]);
+//         out += b[i][k] + ' ';
+//     }
+//     out += '<br>';
+// }
 
-// delete a[3];
-// console.log(a);
+// document.querySelector('.out').innerHTML = out;
 
-// a.splice(3, 4, 'hi');
-// console.log(a);
+// out = '';
+// for (let i = 0; i < b.length; i++) {
+//     for (let k = 0; k < b[i].length; k++) {
+//         //console.log(b[i][k]);
+//         if (b[i][k] > 4) {
+//             out += b[i][k] + ' ';
+//         }
+//     }
+//     out += '<br>';
+// }
 
-// Task1
-let d1 = [33, 'best', 66, 'best'];
+// console.log(out);
 
-function showArr(domElem, arr) {
-    let out = '';
-    for (let i = 0; i < arr.length; i++) {
-        out += arr[i] + ' ';
-    }
-    document.querySelector(domElem).innerHTML = out;
-}
-let i1 = document.querySelector('.i-1');
+// let d = [1, 0, 0, 0, 0];
+// document.querySelector('.out2').innerHTML = d;
+// let k = 0;
+// document.querySelector('button').onclick = () => {
+//     if (k + 1 < 5) {
+//         d[k] = 0;
+//         d[k + 1] = 1;
+//         k++;
+//     }
+//     document.querySelector('.out2').innerHTML = d;
+// }
+
 function f1() {
-    d1.push(i1.value);
-    showArr('.out-1', d1);
+    let a1 = [12, [45, 87], [55, 13]];
+    document.querySelector('.out-1').innerHTML = a1[2][0];
+    return a1[2][0];
 }
 document.querySelector('.b-1').onclick = f1;
 
 function f2() {
-    showArr('.out-2', d1);
-    d1.pop();
+    let a2 = [[12, 'hi'], [45, 87], [55, 13]];
+    document.querySelector('.out-2').innerHTML = a2[0][1];
+    return a2[0][1];
 }
 document.querySelector('.b-2').onclick = f2;
 
 function f3() {
-    showArr('.out-3', d1);
-    d1.shift();
+    let a3 = [[1, 2, 3], [3, 4, 5], [6, [7, 'my']]];
+    document.querySelector('.out-3').innerHTML = a3[2][1][1];
+    return a3[2][1][1];
 }
+
 document.querySelector('.b-3').onclick = f3;
 
-let i4 = document.querySelector('.i-4');
 function f4() {
-    d1.push(i4.value);
-    showArr('.out-4', d1);
+    let a4 = [[1, 2, 3], 'go', [3, 4, 5], [6, [7, 'my']]];
+    document.querySelector('.out-4').innerHTML = a4[1];
+    return a4[1]
 }
+
 document.querySelector('.b-4').onclick = f4;
 
-let i5 = document.querySelector('.i-5');
 function f5() {
-    d1.unshift(i5.value);
-    showArr('.out-5', d1);
+    let out = '';
+    let a5 = [[1, 2], [3, 4], [5, 6], [21, 34], [44, 56]];
+    for (let i = 0; i < a5.length; i++) {
+        for (let k = 0; k < a5[i].length; k++) {
+            if (a5[i][k] % 2 === 0) {
+                out += a5[i][k] + ' ';
+            }
+        }
+    }
+    document.querySelector('.out-5').innerHTML = out;
 }
 document.querySelector('.b-5').onclick = f5;
 
-// Task 6
-let d6 = ['test', 5, 12];
-
 function f6() {
-    let a = d6[d6.length - 1];
-    a = 2
-    d6[d6.length] = a;
-    showArr('.out-6', d6);
-    console.log(d6);
+    let out = '';
+    let a6 = [[1, 2], [3, 4], [5, 6], [21, 34], [44, 56]];
+    for (let i = 0; i < a6.length; i++) {
+        for (let k = 0; k < a6[i].length; k++) {
+            if (a6[i][k] % 2 !== 0) {
+                out += a6[i][k] + ' ';
+            }
+        }
+    }
+    document.querySelector('.out-6').innerHTML = out;
 }
 document.querySelector('.b-6').onclick = f6;
 
-d7 = ['china', 'india', 'brazil', 'japan', 'egypt'];
 function f7() {
-    let arr = [];
-    for (let i = 0; i < d7.length; i++) {
-        arr[arr.length] = d7[i];
+    let out = '';
+    let a7 = [
+        [1, 2, 3, 9],
+        [3, 4, 7],
+        [5, 6, 8, 32],
+        [21, 34, 43],
+        [44, 56]
+    ];
+    for (let i = 0; i < a7.length; i++) {
+        for (let k = 0; k < a7[i].length; k++) {
+            if (a7[i][k] % 2 === 0) {
+                out += a7[i][k] + ' ';
+            }
+        }
     }
-    arr = d7.length--;
-    showArr('.out-7', d7);
+    document.querySelector('.out-7').innerHTML = out;
 }
 document.querySelector('.b-7').onclick = f7;
 
-d8 = [2, '4', 12, 67, 'hello'];
-let i8 = document.querySelector('.i-8');
 function f8() {
-    arr = [];
-    for (let i = 0; i < d8.length; i++) {
-        arr[0] = i8.value;
-        arr[i + 1] = d8[i];
+    let out = '';
+    let a8 = [
+        [1, 2, 3, 9],
+        [3, 4, 7],
+        [5, 6, 8, 32],
+        [21, 34, 43],
+        [44, 56]
+    ];
+    for (let i = 0; i < a8.length; i++) {
+        for (let k = 0; k < a8[i].length; k++) {
+            if (a8[i][k] % 2 !== 0) {
+                out += a8[i][k] + ' ';
+            }
+        }
     }
-    d8 = arr;
-    showArr('.out-8', d8);
-
+    document.querySelector('.out-8').innerHTML = out;
 }
 document.querySelector('.b-8').onclick = f8;
 
-d9 = [100, 200, 300, 400, 700, 121];
 function f9() {
-    arr = [];
-    for (let i = 0; i < d9.length - 1; i++) {
-        arr[i] = d9[i + 1];
+    let out = '';
+    let a9 = [
+        [-2, 7, -3],
+        [3, 4, -7],
+        [-5, 6, -8, 32],
+        [21, -34, -43],
+        [44, -56]
+    ];
+    for (let i = 0; i < a9.length; i++) {
+        for (let k = 0; k < a9[i].length; k++) {
+            if (a9[i][k] > 0) {
+                out += a9[i][k] + ' ';
+            }
+        }
     }
-    d9 = arr;
-    showArr('.out-9', d9);
-
+    document.querySelector('.out-9').innerHTML = out;
 }
 document.querySelector('.b-9').onclick = f9;
 
-d10 = [3, 14, 15, 92, 6];
 function f10() {
-    arr = [];
-    for (let i = 0; i < d10.length; i++) {
-        arr[i] = d10[(d10.length - 1) - i];
+    let out = '';
+    let a10 = [
+        [-2, '7', -3],
+        [3, 4, -7],
+        [-5, 6, -8, 32, 'a'],
+        ['st', 21, -34, -43],
+        [44, -56, 'task']
+    ];
+    for (let i = 0; i < a10.length; i++) {
+        for (let k = 0; k < a10[i].length; k++) {
+            if (typeof (a10[i][k]) === 'string') {
+                out += a10[i][k] + ' ';
+            }
+        }
     }
-    d10 = arr;
-    showArr('.out-10', d10);
-
+    document.querySelector('.out-10').innerHTML = out;
 }
 document.querySelector('.b-10').onclick = f10;
-
-// Task 11
-
-d10 = [3, 14, 15, 92, 6];
-function f10() {
-    arr = [];
-    for (let i = 0; i < d10.length; i++) {
-        arr[i] = d10[(d10.length - 1) - i];
-    }
-    d10 = arr;
-    showArr('.out-10', d10);
-
-}
-document.querySelector('.b-10').onclick = f10;
-
-d11 = [2, 3, 4, 5, 6, 7];
 
 function f11() {
-    const i11 = document.querySelector('.i-11');
-    const out11 = document.querySelector('.out-11');
-    let parsed = parseInt(i11.value);
-    for (let i = 0; i < d11.length; i++) {
-        if (d11.indexOf(parsed) !== d11[i]) {
-            out11.innerHTML = d11.indexOf(parsed);
-        } else {
-            out11.innerHTML = i;
-        }
-    };
-
+    let out = '';
+    let a11 = [
+        [4, 5, 6],
+        [7, 8],
+        [9, 10, 11, 12, 13]
+    ];
+    for (let i = a11.length - 1; i >= 0; i--) {
+        out += a11[i] + ' ';
+    }
+    document.querySelector('.out-11').innerHTML = out;
 }
 document.querySelector('.b-11').onclick = f11;
 
-let d12 = [6, 62, 60, 70, 1, 5, 6]
-
 function f12() {
-    let input = +document.querySelector('.i-12').value
+    let out = '';
+    let a12 = [
+        [0, 1, 0, 1, 0, 1, 0, 1],
+        [1, 0, 1, 0, 1, 0, 1, 0],
+        [0, 1, 0, 1, 0, 1, 0, 1],
+        [1, 0, 1, 0, 1, 0, 1, 0],
+        [0, 1, 0, 1, 0, 1, 0, 1],
+        [1, 0, 1, 0, 1, 0, 1, 0],
+        [0, 1, 0, 1, 0, 1, 0, 1],
+        [1, 0, 1, 0, 1, 0, 1, 0],
+    ];
+    for (let i = 0; i < a12.length; i++) {
+        for (let k = 0; k < a12[i].length; k++) {
+            if (a12[i][k] === 1) {
+                out += a12[i][k] + ' ';
+            }
+        }
+        document.querySelector('.out-12').innerHTML = out;
+    }
+}
+document.querySelector('.b-12').onclick = f12;
 
-    let res = -1
-    for (let i = 0; i < d12.length; i++) {
-        if (input === d12[i]) {
-            res = i
-            break
+let a13 = [];
+
+function f13() {
+    a13 = [];
+    for (let i = 0; i < 8; i++) {
+        a13.push([]);
+        for (let k = 0; k < 8; k++) {
+            if (i % 2 == 0) {
+                if (k % 2 == 0) {
+                    a13[i].push(0);
+                }
+                else {
+                    a13[i].push(1);
+                }
+            }
+            else {
+                if (k % 2 != 0) {
+                    a13[i].push(0);
+                }
+                else {
+                    a13[i].push(1);
+                }
+            }
         }
     }
-    document.querySelector('.out-12').innerHTML = res;
+    console.log(a13);
 }
-document.querySelector('.b-12').onclick = f12
 
-
-d13 = [6, 0, 22, 1, 4, 76]
-function f13() {
-    arr = [];
-    for (let i = 0; i < d13.length; i++) {
-        arr[i] = d13[(d13.length - 1) - i];
-    }
-    d13 = arr;
-    showArr('.out-13', d13);
-
-}
 document.querySelector('.b-13').onclick = f13;
 
-d14 = [];
+
 function f14() {
-    const i14 = +document.querySelector('.i-14').value;
-    for (let i = 0; i < i14; i++) {
-        d14[d14.length] = 1;
-    };
-    showArr('.out-14', d14);
+    let a14 = [
+        [],
+        [1, 0],
+        [1, 0, 0, 0],
+        [3, 4, 5, 6, 7, 8],
+        [1, 2]
+    ];
+    let out = '';
+    for (let i = 0; i < a14.length; i++) {
+        for (let k = 0; k < a14.length; k++) {
+            out += a14[i].length + ' ';
+            break
+        }
+        out += '<br>';
+    }
+    document.querySelector('.out-14').innerHTML = out;
 }
 document.querySelector('.b-14').onclick = f14;
 
-d15 = [0, 2, 5, -4, 6, 22, -9, -12, 8, 12, 13, 78];
-let i15 = document.querySelector('.i-15');
+let a15 = [
+    [],
+    [1, 0],
+    [1, 0, 0, 0],
+    [3, 4, 5, 6, 7, 8],
+    [1, 2]
+];
+
 function f15() {
-    let parsed = +i15.value;
-    if (d15.indexOf(parsed) == -1) {
-        d15.push(parsed);
-    }
-    showArr('.out-15', d15);
-}
-document.querySelector('.b-15').onclick = f15;
-
-let d16 = [];
-let d161 = [5, 6, 7, 8, 9];
-let d162 = [23, 24, 56, 87];
-function f16() {
-    const array4 = d161.concat(d162);
-    d16.push(array4);
-    showArr('.out-16', d16);
-}
-document.querySelector('.b-16').onclick = f16;
-
-
-d171 = ['a', 'b', 'c', 'd'];
-d172 = [1, 2, 3, 4, 5];
-function f17() {
-    d17 = [];
-    for (let i = 0; i < d172.length; i++) {
-        d171.push(d172[i]);
-    }
-    d17 = d171;
-    showArr('.out-17', d17);
-}
-document.querySelector('.b-17').onclick = f17;
-
-d18 = ['b', 'c', '45', 'e', 'z', 'y'];
-let i18 = document.querySelector('.i-18');
-
-function f18() {
-    let out = document.querySelector('.out-18');
-    out.innerHTML = d18.includes(i18.value);
-    console.log(i18.value);
-}
-document.querySelector('.b-18').onclick = f18;
-
-d19 = ['Your', 'payment', 'method', 'will', 'automatically', 'be', 'charged', 'in', 'advance', 'every'];
-function f19() {
-    d191 = ["Your"];
-    for (i = 0; i < d19.length; i++) {
-        if (d19.length > d191.length) {
-            d191 = d19[i];
+    let max = a15[0];
+    for (let i = 0; i < a15.length; i++) {
+        if (a15[i].length > max) {
+            max = a15[i].length;
         }
     }
-    showArr('.out-19', d191);
+    document.querySelector('.out-15').innerHTML = max;
 }
-document.querySelector('.b-19').onclick = f19;
 
-d20 = [4, 5, 6, 7, 8, 9, 10];
-function f20() {
-    let out = document.querySelector('.out-20');
-    out.innerHTML += d20.join('');
-}
-document.querySelector('.b-20').onclick = f20;
+document.querySelector('.b-15').onclick = f15;
 
+let a16 = [
+    [0, 7, 0, 6],
+    0,
+    0,
+    8
+];
+
+console.group('Task 16 ================');
+console.log(a16[3] == 8);
+console.log(a16[0][1] == 7);
+console.log(a16[0][3] == 6);
+
+console.groupEnd();
+
+let a17 = [
+    [0, 0, 6, 0],
+    [0, 7, 0, 0],
+    0,
+    [0, 0, 8, 0]
+];
+
+console.group('Task 17 ================');
+console.log(a17[3][2] == 8);
+console.log(a17[1][1] == 7);
+console.log(a17[0][2] == 6);
+
+console.groupEnd();
+
+let a18 = [
+    3,
+    0,
+    [0, 12, 0, 0],
+    0,
+    [8, 0, 0, 0,]
+];
+
+console.group('Task 18 ================');
+console.log(a18[0] == 3);
+console.log(a18[4][0] == 8);
+console.log(a18[2][1] == 12);
+
+console.groupEnd();
+
+let a19 = [
+    [[0, 3], 0, 0],
+    [[0, 0, 8], 0, 0],
+    [0, [12, 0], 0]
+];
+
+console.group('Task 19 ================');
+console.log(a19[0][0][1] == 3);
+console.log(a19[1][0][2] == 8);
+console.log(a19[2][1][0] == 12);
+
+console.groupEnd();
+
+let a20 = [
+    0,
+    [0,[0,[9]]],
+    [0,0,18],
+    [12]
+];
+
+console.group('Task 20 ================');
+console.log(a20[1][1][1] == 9);
+console.log(a20[2][2] == 18);
+console.log(a20[3] == 12);
+
+console.groupEnd();
