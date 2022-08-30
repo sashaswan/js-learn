@@ -1,137 +1,159 @@
-let getData = {
-    name: '.package-name',
-    temp: '.price',
-    description: '.disclaimer',
-    icon: '.features li',
-    country: '.country',
-    feel: '.feel',
-    humidity: '.humidity',
-    pressure: '.pressure',
-    sunrise: '.sunrise',
-    sunset: '.sunset'
+let mySet = new Set();
+mySet.add('h');
+mySet.add('b');
+mySet.add('o');
+mySet.add('h');
+console.log(mySet);
+
+let s2 = new Set();
+const f2 = () => {
+    let i2 = document.querySelector('.i-2').value;
+    s2.add(i2);
+    console.log(s2);
 }
-function time(unixTimestamp) {
-    let date = new Date(unixTimestamp * 1000);
-    let hours = date.getHours();
-    let minutes = "0" + date.getMinutes();
-    let formattedTime = hours + ':' + minutes.substr(-2);
-    return formattedTime;
+document.querySelector('.b-2').onclick = f2;
+
+let s3 = new Set(['one', 'two', 'four']);
+
+const f3 = () => {
+    let i3 = document.querySelector('.i-3').value;
+    s3.delete(i3);
+    console.log(s3);
+}
+document.querySelector('.b-3').onclick = f3;
+
+let s4 = new Set(['a', 'b', 'c', 'z']);
+
+const f4 = () => {
+    let i4 = document.querySelector('.i-4');
+    let out = '';
+    if (s4.has(i4.value)) {
+        out += true;
+    }
+    else {
+        out += false;
+    }
+    document.querySelector('.out-4').innerHTML = out;
 }
 
-function timeConverter(UNIX_timestamp) {
-    let a = new Date(UNIX_timestamp * 1000);
-    let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    let year = a.getFullYear();
-    let month = months[a.getMonth()];
-    let date = a.getDate();
-    let time = date + ' ' + month + ' ' + year;
-    return time;
+document.querySelector('.b-4').onclick = f4;
+
+let s5 = new Set(['a', 'b', 'c', 'z', 'a2', 'b2', 'c2', 'z2']);
+
+const f5 = () => {
+    let out = '';
+    out += s5.size;
+    document.querySelector('.out-5').innerHTML = out;
+}
+document.querySelector('.b-5').onclick = f5;
+
+let a6 = [1, 2, 3, 4, 5, 3, 4, 5, 2, 4, 5, 3, 24, 5, 2, 4, 56, 4, 3, 2, 335, 2, 23, 41, 3, 4, 1, 1, 4, 2, 2, 4, 5, 24, 5, 3, 22, 56];
+
+const f6 = () => {
+    let s6 = new Set(a6);
+    let out = '';
+    for (let item of s6) {
+        out += item + ' ';
+    }
+    document.querySelector('.out-6').innerHTML = out;
+}
+document.querySelector('.b-6').onclick = f6;
+
+
+const f7 = () => {
+    let i7 = document.querySelector('.i-7');
+    let out = '';
+    let arr = i7.value.split('');
+    let set = new Set(arr);
+
+    if (set.size >= 6 && arr.length == set.size) {
+        out += true;
+    }
+    else {
+        out += false;
+    }
+    document.querySelector('.out-7').innerHTML = out;
+}
+document.querySelector('.b-7').onclick = f7;
+
+let s8 = new Set([1, 2, 3, 4, 5, 3, 4, 7, 9, 5, 7, 8, 9, 23, 45, 5, 2, 4, 5, 3, 24, 5, 2, 4, 56, 4, 3, 2, 335, 2, 23, 41, 3, 4, 1, 1, 4, 2, 2, 4, 5, 24, 5, 3, 22, 56]);
+let ar8 = [];
+
+const f8 = () => {
+    ar8 = [];
+    for (let item of s8) {
+        if (item > 5) {
+            ar8.push(item);
+        }
+    }
+    console.log(ar8);
 }
 
-function f1(data) {
-    document.querySelector(`${getData.name}`).innerHTML = data.name;
-    document.querySelector(`${getData.temp}`).innerHTML = Math.round(data.main.temp) + '&deg;';
-    document.querySelector(`${getData.description}`).textContent = data.weather[0]['description'];
-    document.querySelector(`${getData.icon}`).innerHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0]['icon']}@2x.png">`;
-    document.querySelector(`${getData.country}`).textContent = data.sys.country;
-    document.querySelector(`${getData.feel}`).innerHTML = Math.round(data.main.feels_like) + '&deg;';
-    document.querySelector(`${getData.humidity}`).innerHTML = data.main.humidity + '%';
-    document.querySelector(`${getData.pressure}`).innerHTML = data.main.pressure + ' atm';
-    document.querySelector(`${getData.sunrise}`).innerHTML = time(data.sys.sunrise);
-    document.querySelector(`${getData.sunset}`).innerHTML = time(data.sys.sunset);
+document.querySelector('.b-8').onclick = f8;
+
+const f9 = our_set => {
+    let myArr = Array.from(our_set);
+    return myArr;
 }
 
-let id = document.getElementById('s1');
-id.addEventListener('change', () => {
-    fetch(`http://api.openweathermap.org/data/2.5/weather?id=${id.value}&appid=3612c8feb0a2a51cb89b7b38acf7b127&units=metric`)
-        .then(function (resp) { return resp.json() })
-        .then(function (data) {
-            console.log(data);
-            f1(data);
-        })
-        .catch(err => console.error(err))
-})
-let fourData = {
-    country: '.country-4',
-    city: '.city-4',
-    temp: '.temp-4',
-    humidity: '.humidity-4',
-    pressure: '.pressure-4',
-    date: '.date',
-    weather: '.weather-i',
-    description: '.weather-4',
+document.querySelector('.b-9').onclick = () => {
+    let s9 = new Set([9, 8, 7, 6, 5]);
+    document.querySelector('.out-9').innerHTML = f9(s9);
 }
-function input(forecast) {
-    document.querySelector('.w-1').value = timeConverter(forecast.one.dt);
-    document.querySelector('.w-2').value = timeConverter(forecast.two.dt);
-    document.querySelector('.w-3').value = timeConverter(forecast.three.dt);
-    document.querySelector('.w-4').value = timeConverter(forecast.four.dt);
-}
-function f6(forecast) {
-    document.querySelector('.w-1').onclick = () => {
-        document.querySelector(`${fourData.temp}`).innerHTML = Math.round(forecast.one.main.temp) + '&deg;';
-        document.querySelector(`${fourData.humidity}`).textContent = forecast.one.main.humidity + '%';
-        document.querySelector(`${fourData.pressure}`).textContent = forecast.one.main.pressure + ' atm';
-        document.querySelector(`${fourData.date}`).innerHTML = timeConverter(forecast.one.dt);
-        document.querySelector(`${fourData.weather}`).innerHTML = `<img src="https://openweathermap.org/img/wn/${forecast.one.weather[0]['icon']}@2x.png">`;
-        document.querySelector(`${fourData.description}`).innerHTML = forecast.one.weather[0]['description'];
+
+const f10 = (out_set, elem) => {
+    let out = '';
+    for (let item of out_set) {
+        out += item + ' ';
     }
+    document.querySelector(elem).innerHTML = out;
 }
-function f7(forecast) {
-    document.querySelector('.w-2').onclick = () => {
-        document.querySelector(`${fourData.temp}`).innerHTML = Math.round(forecast.two.main.temp) + '&deg;';
-        document.querySelector(`${fourData.humidity}`).textContent = forecast.two.main.humidity + '%';
-        document.querySelector(`${fourData.pressure}`).textContent = forecast.two.main.pressure + ' atm';
-        document.querySelector(`${fourData.date}`).innerHTML = timeConverter(forecast.two.dt);
-        document.querySelector(`${fourData.weather}`).innerHTML = `<img src="https://openweathermap.org/img/wn/${forecast.two.weather[0]['icon']}@2x.png">`;
-        document.querySelector(`${fourData.description}`).innerHTML = forecast.two.weather[0]['description'];
-    }
+
+document.querySelector('.b-10').onclick = () => {
+    let a10 = new Set(['4', '5', '6']);
+    f10(a10, '.out-10');
+};
+
+const f11 = () => {
+    let s = new Set();
+    s.add([1]);
+    s.add([1]);
+    console.log(s);
 }
-function f8(forecast) {
-    document.querySelector('.w-3').onclick = () => {
-        document.querySelector(`${fourData.temp}`).innerHTML = Math.round(forecast.three.main.temp) + '&deg;';
-        document.querySelector(`${fourData.humidity}`).textContent = forecast.three.main.humidity + '%';
-        document.querySelector(`${fourData.pressure}`).textContent = forecast.three.main.pressure + ' atm';
-        document.querySelector(`${fourData.date}`).innerHTML = timeConverter(forecast.three.dt);
-        document.querySelector(`${fourData.weather}`).innerHTML = `<img src="https://openweathermap.org/img/wn/${forecast.three.weather[0]['icon']}@2x.png">`;
-        document.querySelector(`${fourData.description}`).innerHTML = forecast.three.weather[0]['description'];
-    }
+
+document.querySelector('.b-11').onclick = f11;
+
+let str12 = 'The name conjures up visions of plum pudding and Christmas punch quaint coaching inns and cozy firesides but also of orphaned and starving children';
+
+const f12 = () => {
+    let arr = str12.split('');
+    let s = new Set(arr)
+    return s;
 }
-function f9(forecast) {
-    document.querySelector('.w-4').onclick = () => {
-        document.querySelector(`${fourData.temp}`).innerHTML = Math.round(forecast.four.main.temp) + '&deg;';
-        document.querySelector(`${fourData.humidity}`).textContent = forecast.four.main.humidity + '%';
-        document.querySelector(`${fourData.pressure}`).textContent = forecast.four.main.pressure + ' atm';
-        document.querySelector(`${fourData.date}`).innerHTML = timeConverter(forecast.four.dt);
-        document.querySelector(`${fourData.weather}`).innerHTML = `<img src="https://openweathermap.org/img/wn/${forecast.three.weather[0]['icon']}@2x.png">`;
-        document.querySelector(`${fourData.description}`).innerHTML = forecast.four.weather[0]['description'];
-    }
+
+document.querySelector('.b-12').onclick = () => {
+    console.log(f12());
 }
-let id4 = document.getElementById('s1');
-id4.addEventListener('change', () => {
-    fetch(`http://api.openweathermap.org/data/2.5/forecast?id=${id4.value}&appid=3612c8feb0a2a51cb89b7b38acf7b127&units=metric`)
-        .then(function (resp) { return resp.json() })
-        .then(function (data) {
-            let forecast = {
-                one: data.list[9],
-                two: data.list[11],
-                three: data.list[19],
-                four: data.list[27]
+
+let str13 = 'Hello ho';
+
+
+const f13 = () => {
+    let arr = Array.from(str13);
+    let newSet = new Set(arr);
+    let clearObj = {};
+    for (let i of newSet) {
+        let count = 0;
+        for (let k in arr) {
+            if (i === arr[k]) {
+                count++;
             }
-            document.querySelector(`${fourData.country}`).innerHTML = data.city.country;
-            document.querySelector(`${fourData.city}`).innerHTML = data.city.name;
-            document.querySelector(`${fourData.temp}`).innerHTML = Math.round(forecast.one.main.temp) + '&deg;';
-            document.querySelector(`${fourData.humidity}`).textContent = forecast.one.main.humidity + '%';
-            document.querySelector(`${fourData.pressure}`).textContent = forecast.one.main.pressure + ' atm';
-            document.querySelector(`${fourData.date}`).innerHTML = timeConverter(forecast.one.dt);
-            document.querySelector(`${fourData.weather}`).innerHTML = `<img src="https://openweathermap.org/img/wn/${forecast.one.weather[0]['icon']}@2x.png">`;
-            document.querySelector(`${fourData.description}`).innerHTML = forecast.one.weather[0]['description'];
-            console.log(data);
-            input(forecast);
-            f6(forecast);
-            f7(forecast);
-            f8(forecast);
-            f9(forecast);
-        })
-        .catch(err => console.error(err))
-})
+        }
+        clearObj[i] = count;
+    }
+    return clearObj;
+}
+
+document.querySelector('.b-13').onclick = () => {
+    console.log(f13());
+}
