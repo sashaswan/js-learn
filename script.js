@@ -1,185 +1,142 @@
-let a1 = [5, 7, 9, 11, 13, 15];
+let a1_res = [],
+    a2_res = [],
+    a3_res = [],
+    a4_res = [],
+    b1_res = [],
+    b6_res = [],
+    b7_res = [],
+    b8_res = [],
+    b9_num = [],
+    b9_string = [],
+    b10_res = [];
+
+let a1 = [4, 5, 6, 7, 12, 34, 56, 78, 90, 11];
 
 function f1() {
-    let out = '';
-    for (let i = 0; i < a1.length; i++) {
-        out += a1[i] + ' ';
-    }
-    document.querySelector('.out-1').innerHTML = out;
+    a1_res = a1.map(elem => {
+        return elem * 2;
+    });
+    return a1_res;
+}
+document.querySelector('.b-1').onclick = () => {
+    console.log(f1());
 }
 
-document.querySelector('.b-1').addEventListener('click', f1);
+let a2 = [2, 3, 4, 5, 10, 11, 12];
 
-let a2 = [5, 7, 9, 11, 13, 15];
-
-function f2() {
-    let out = '';
-    for (let i = 0; i < a2.length; i++) {
-        out += i + ' ' + a2[i] + ' ';
-    }
-    document.querySelector('.out-2').innerHTML = out;
+function t2() {
+    a2_res = a2.map(elem => {
+        return elem ** 2;
+    });
+    return a2_res;
+}
+document.querySelector('.b-2').onclick = () => {
+    console.log(t2());
 }
 
-document.querySelector('.b-2').addEventListener('click', f2);
-
-function f3() {
-    let div = document.getElementsByClassName('out-3');
-    for (let i = 0; i < div.length; i++) {
-        div[i].innerHTML = 3;
-    }
+function t3() {
+    let a3 = [4, "3", 6, 7, "12", 34, "56", 78, 90, 11];
+    let out = a3.map(elem => {
+        a3_res.push(+elem);
+    });
+    console.log(a3_res);
 }
-document.querySelector('.b-3').addEventListener('click', f3);
+document.querySelector(".b-3").onclick = t3;
 
-function f4() {
-    let div = document.querySelectorAll('.out-4');
-    for (let item of div) {
-        item.innerHTML += 4;
-    }
-}
-document.querySelector('.b-4').addEventListener('click', f4);
-
-let a5 = [3, 4, 5, 2, 1, 7, 8, 2, 4, 6, 8, 11, 23, 17];
-
-function f5() {
-    let out = '';
-    for (let item of a5) {
-        if (item > 7) {
-            out += item + ' ';
+let a4 = [4, "3", 6, 7, "12", 34, "56", 78, 90, 11];
+function t4() {
+    a4_res = a4.filter(elem => {
+        if (typeof elem == 'number') {
+            return elem;
         }
-    }
-    document.querySelector('.out-5').innerHTML = out;
+    });
+    return a4_res;
 }
-document.querySelector('.b-5').addEventListener('click', f5);
-
-let a6 = [[1, 2], [3, 4], [5, 6]];
-
-function f6() {
-    let arr = [a6];
-    let out = '';
-    for (let item of arr) {
-        out += item + ' ';
-    }
-    document.querySelector('.out-6').innerHTML = out;
+document.querySelector('.b-4').onclick = () => {
+    console.log(t4());
 }
-document.querySelector('.b-6').addEventListener('click', f6);
 
-let a7 = [{ id: 23, name: 'Ivan' }, { id: 45, name: 'Petr' }];
+let b1 = [3, 14, 15, 92];
 
-function f7() {
-    let newObj = {};
-    for (let item of a7) {
-        newObj[item.id] = item.name
-    }
-    a7 = newObj;
-    return a7;
-}
-document.querySelector('.b-7').addEventListener('click', () => {
-    console.log(f7());
-});
-
-let a8 = [{ id: 23, name: 'Ivan' }, { id: 45, name: 'Petr' }];
-function f8() {
-    let arr = [];
-    for (let item of a8) {
-        id = item.id
-        if (typeof id == 'number') {
-            arr.push(id)
+function t5() {
+    b1_res = b1.filter(elem => {
+        if (elem % 2 == 0) {
+            return elem;
         }
-    }
-    a8 = arr;
-    return a8;
+    });
+    return b1_res;
+}
+document.querySelector('.b-5').onclick = () => {
+    console.log(t5());
 }
 
-document.querySelector('.b-8').addEventListener('click', () => {
-    console.log(f8());
-});
+let b6 = [3, 14, 15, 92, "6", "5", "hello", 32];
 
-let a9 = [[4, 3, 2], [2, 5], [0, 0, 0, 0, 0]];
+function t6() {
+    let b6 = [3, 14, 15, 92, "6", "5", "hello", 32];
+    b6.filter(elem => {
+        if (typeof elem === "number") b6_res.push(elem);
+    });
+    return b6_res;
+}
+document.querySelector('.b-6').onclick = () => {
+    console.log(t6());
+}
+let b7 = ["php-7", "html", "css", 92, "6", "5", "hello", 32];
+function t7() {
+    b7.filter(elem => {
+        if (typeof elem === "string" && elem.length > 3) b7_res.push(elem);
+    });
+    return b7_res;
+}
 
-function f9() {
-    maxStr = a9[0].length
-    for (let i = 0; i < a9.length; i++) {
-        if (a9[i].length > maxStr) {
-            maxStr = a9[i].length
-            return a9[i].length - 1
+document.querySelector('.b-7').onclick = () => {
+    console.log(t7());
+}
+
+let b8 = [3, 14, 15, 92, "6", "5", "hello", 32];
+function t8() {
+    b8.filter(function (item, index) {
+        if (item % 2 == 0) {
+            if (item % 2 === 0) b8_res.push(index);
         }
-    }
-}
-document.querySelector('.b-9').addEventListener('click', () => {
-    document.querySelector('.out-9').innerHTML = f9();
-});
-
-let a10 = [4, 6, 9, 'Hello'];
-function f10() {
-    let arr = {};
-    for (let key in a10) {
-        arr[key] = a10;
-        return arr;
-    }
+    })
+    return b8_res;
 }
 
-document.querySelector('.b-10').addEventListener('click', () => {
-    console.log(f10());
-});
-
-let a11 = {
-    one: 11,
-    two: 7,
-    three: 13,
-    four: 0
+document.querySelector('.b-8').onclick = () => {
+    console.log(t8());
 }
 
-function f11() {
-    let out = '';
-    for (let key in a11) {
-        if (a11[key] > 10) {
-            out += a11[key] + ' ';
+let b9 = [3, "hello", 4, "world", 5, "hi"];
+function t9() {
+    b9.filter(function (item) {
+        if (typeof item == 'number') {
+            b9_num.push(item);
         }
-    }
-    document.querySelector('.out-11').innerHTML = out;
+        else if (typeof item == 'string') {
+            b9_string.push(item);
+        }
+    })
+    return [b9_num, b9_string];
 }
 
-document.querySelector('.b-11').addEventListener('click', f11);
-
-let a12 = [4, 5, 6, 7];
-
-function f12() {
-    let out = '';
-    for (let item of a12) {
-        out += item + ' ';
-    }
-    document.querySelector('.out-12').innerHTML = out;
+document.querySelector('.b-9').onclick = () => {
+    console.log(t9());
 }
 
-document.querySelector('.b-12').addEventListener('click', f12);
-
-let a13 = 'testone';
-function f13() {
-    let out = '';
-    for (let item of a13) {
-        out += item.split() + ' ';
-    }
-    document.querySelector('.out-13').innerHTML = out;
+let b10 = [[1, 2, 3], [3, 4, 6], [4, 5, 7], [8, 9, 3]]
+function t10() {
+    b10.filter(function (elem) {
+        for (item of elem) {
+            if (item === 3) {
+                b10_res.push(elem);
+            }
+        }
+    })
+    return b10_res;
 }
 
-document.querySelector('.b-13').addEventListener('click', f13);
-
-let a14 = new Set([4,5,6]);
-
-function f14() {
-    let out = '';
-    for (let item of a14) {
-        out += item + ' ';
-    }
-    document.querySelector('.out-14').innerHTML = out;
+document.querySelector('.b-10').onclick = () => {
+    console.log(t10());
 }
-
-document.querySelector('.b-14').addEventListener('click', f14);
-
-function f15() {
-    let div = document.querySelectorAll('.out-15');
-    for (let item of div) {
-        item.innerHTML = 15;
-    }
-}
-document.querySelector('.b-15').addEventListener('click', f15);
