@@ -1,99 +1,146 @@
-let a1_res = [],
-    a2_res = [],
-    a3_res = [],
-    a4_res = [],
-    a5_res = [],
-    a6_res = [],
-    a7_res = [],
-    a8_res = [],
-    a9_res = [],
-    a10_res = [];
-
 function t1() {
-    let a1 = [4, 5, 6, 7, 12, 34, 56, 78, 90, 11];
-    a1.forEach(elem => {
-        a1_res.push(elem * 2);
-    });
-    document.querySelector('.out-1').innerHTML = a1_res;
+    let a = document.querySelector('.div-1').textContent;
+    document.querySelector('.out-1').textContent = a;
+    return a;
 }
+document.querySelector('.div-1').onclick = t1;
 
-document.querySelector('.b-1').onclick = t1;
-
-function t2() {
-    let a2 = [2, 3, 4, 5, 10, 11, 12]
-    a2.forEach(elem => {
-        a2_res.push(elem / 2);
-    });
-    document.querySelector('.out-2').innerHTML = a2_res;
+function t2(e) {
+    let out = e.altKey;
+    document.querySelector('.out-2').innerHTML = out;
 }
+document.querySelector('.div-2').onclick = t2;
 
-document.querySelector('.b-2').onclick = t2;
+let w3 = 75;
 
 function t3() {
-    a3 = [2, "hello", 3, "hi", 4, "Mazai"]
-    a3.forEach(elem => {
-        if (typeof elem == 'number') {
-            console.log(elem);
-        }
-    });
-    document.querySelector('.out-3').innerHTML = a3_res;
+    let out = '';
+    let div = document.querySelector('.div-3');
+    out += div.style.width = w3 + 'px';
+    w3 += 5;
+    document.querySelector('.out-3').innerHTML = out;
 }
-document.querySelector('.b-3').onclick = t3;
+document.querySelector('.div-3').onclick = t3;
 
 function t4() {
-    let a4 = document.querySelectorAll('.task-4');
-    a4.forEach(elem => {
-        elem.innerHTML = elem.attributes.data.value;
-    });
-    document.querySelector('.out-4').innerHTML = a4_res;
+    let a = document.querySelector('.div-4').textContent;
+    document.querySelector('.out-4').textContent = a;
+    return a;
 }
-document.querySelector('.b-4').onclick = t4;
+document.querySelector('.div-4').ondblclick = t4;
 
-function t5(elem) {
-    a5_res.push(elem.srcElement.attributes.data.value);
-    document.querySelector(".out-5").textContent = a5_res;
+function t5() {
+    document.querySelectorAll('.div-4');
+    this.classList.toggle('active');
 }
-
-document.querySelectorAll('.task-5').forEach(elem => {
-    elem.onclick = t5;
-});
-
+document.querySelector('.div-5').ondblclick = t5;
 
 function t6() {
-    let str6 = "helloworld";
-    a6_res.push(Array.from(str6));
-    console.log(a6_res);
+    let ul = document.querySelector('.ul-6');
+    ul.classList.toggle('hide');
 }
-document.querySelector('.b-6').onclick = t6;
+document.querySelector('.div-6').ondblclick = t6;
 
 function t7() {
-    str7 = "hello world hi mazai";
-    a7_res = str7.split(' '); 
-    console.log(a7_res);
+    let div = document.querySelector('.div-7');
+    div.classList.toggle('active');
 }
-document.querySelector('.b-7').onclick = t7;
-
+document.querySelector('.div-7').oncontextmenu = t7;
 
 function t8() {
-    a8 = [1,2,66,77,15];
-    console.log(a8.join('-'));
+    if (document.querySelector('.ch-8').checked) {
+        return false;
+    }
+    else {
+        return true;
+    }
 }
-document.querySelector('.b-8').onclick = t8;
-
+document.querySelector('.ch-8').onchange = () => {
+    oncontextmenu = t8;
+}
 
 function t9() {
-    a9 = [['hi', 'mahai'], ['test', 'best']];
-    let res = a9.map(function(item){
-        return item.join('-');
-    }) 
-    a9_res = res.join('-');
-    console.log(a9_res);
+    document.querySelector('.div-9 img').setAttribute('src', 'img/2.png');
 }
-document.querySelector('.b-9').onclick = t9;
+document.querySelector('.div-9').oncontextmenu = t9;
 
-function t10() {
-    let a10 = { name: 'ivan', age: 15, sex: 1, id: 45 };
-    a10_res = '&' + new URLSearchParams(a10);
-    document.querySelector('.out-10').textContent = a10_res;
+let m = document.querySelector('.div-10 img');
+
+m.addEventListener('mouseenter', () => {
+    let div10 = document.querySelector('.div-10 img');
+    div10.src = 'img/2.png';
+})
+
+
+let n = document.querySelector('.div-11 img');
+n.addEventListener('mouseenter', () => {
+    let div11 = document.querySelector('.div-11 img');
+    div11.src = 'img/2.png';
+})
+n.addEventListener('mouseleave', () => {
+    let div11 = document.querySelector('.div-11 img');
+    div11.src = 'img/1.png';
+})
+
+let n12 = document.querySelector('.div-12');
+n12.addEventListener('mousedown', () => {
+    n12.classList.toggle('active');
+})
+
+let n13 = document.querySelector('.div-13');
+n13.addEventListener('mousedown', () => {
+    n13.classList.toggle('active');
+})
+
+n13.addEventListener('mouseup', () => {
+    n13.classList.toggle('active');
+})
+
+function t14() {
+    let div = document.querySelector('.div-14');
+    div.classList.toggle('active');
 }
-document.querySelector('.b-10').onclick = t10;
+document.querySelector('.b-14').onclick = t14;
+
+
+function t15() {
+    let num = +document.querySelector('.div-15').textContent;
+    num++;
+    document.querySelector('.div-15').innerHTML = num;
+}
+document.querySelector('.div-15').onmousemove = t15;
+
+let num = 75;
+function t16() {
+    let div = document.querySelector('.div-16');
+    div.style.width = num + 'px';
+    num++;
+}
+document.querySelector('.div-16').onmousemove = t16;
+
+function t17On() {
+    document.querySelector('.div-16').onmousemove = t16;
+}
+function t17Off() {
+    document.querySelector('.div-16').onmousemove = false;
+}
+document.querySelector('.b-17_on').addEventListener("click", t17On);
+document.querySelector('.b-17_off').addEventListener("click", t17Off);
+
+function t18() {
+    document.querySelector('.div-18').innerHTML = document.querySelector('.div-18').offsetWidth;
+}
+document.querySelector('.div-18').onmouseenter = t18;
+
+
+function t19() {
+    document.querySelector('.div-19').innerHTML = document.querySelector('.div-19').classList;
+}
+document.querySelector('.div-19').onmouseenter = t19;
+let v = 1;
+function t20() {
+    v++; 
+    document.querySelector('progress').value = v;
+}
+document.querySelector('progress').onmousemove = t20;
+
