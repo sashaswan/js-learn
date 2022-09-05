@@ -1,123 +1,125 @@
-document.querySelector('.i-1').onkeypress = function (event) {
-    let out = '';
-    out += event.key;
-    document.querySelector('.out-1').innerHTML = out;
+function t1() {
+    document.querySelector('.out-1').innerHTML += 'work';
 }
-document.querySelector('.i-2').onkeypress = function (event) {
-    let out = '';
-    out += event.code;
-    document.querySelector('.out-2').innerHTML = out;
-}
+document.querySelector('.div-1').addEventListener('touchstart', t1);
 
-document.querySelector('.i-3').onkeypress = function (event) {
-    let out = '';
-    if (event.charCode <= 57) {
-        out += true;
+function t2(event) {
+    document.querySelector('.out-2').innerHTML += event.touches.length;
+}
+document.querySelector('.div-2').addEventListener('touchstart', t2);
+
+function t3(event) {
+    if (this.classList.contains('div-3_1')) {
+        document.querySelector('.out-3').innerHTML = 1;
     }
     else {
-        out += false;
+        document.querySelector('.out-3').innerHTML = 2;
     }
-    document.querySelector('.out-3').innerHTML = out;
 }
-function t4(event) {
-    let out = document.querySelector('.out-4');
-    let k = event.key;
+document.querySelector('.div-3_1').addEventListener('touchstart', t3);
+document.querySelector('.div-3_2').addEventListener('touchstart', t3);
 
-    if (k.charCodeAt() > 96) {
-        out.innerHTML += k;
+function t4() {
+    document.querySelector('.div-4').ontouchstart = show;
+    function show() {
+        document.querySelector('.out-4').innerHTML += 'touch';
     }
 }
-document.querySelector('.i-4').addEventListener('keypress', t4);
+document.querySelector('.b-4').onclick = t4;
 
-function t5(event) {
-    let out = document.querySelector('.out-5');
-    let k = event.key;
-    out.innerHTML += k.toUpperCase();
+function t5() {
+    document.querySelector('.div-4').ontouchstart = null;
+    document.querySelector('.out-5').innerHTML = 'cleared';
 }
-document.querySelector('.i-5').addEventListener('keypress', t5);
+document.querySelector('.b-5').onclick = t5;
 
-function t6(event) {
-    let out = document.querySelector('.out-6');
-    let k = event.key;
-    out.innerHTML += k.toLowerCase();
+function t6() {
+    document.querySelector('.out-6').innerHTML += 'touchend';
 }
-document.querySelector('.i-6').addEventListener('keypress', t6);
+document.querySelector('.div-4').ontouchend = t6;
 
-const a7 = ['a', 'z', 'x', 'w', 'y', 't'];
-document.querySelector('.i-7').onkeypress = function (event) {
-    let str = '';
-    let item = a7[Math.floor(Math.random() * a7.length)];
-    str += item;
-    document.querySelector('.out-7').innerHTML += str;
+function t7() {
+    document.querySelector('.div-7').style.background = 'red';
 }
-document.querySelector('.i-8').onkeypress = function (event) {
-    let out = '';
-    if (event.charCode == 105) {
-        out += 1
-    }
-    else if (event.charCode == 111) {
-        out += 0;
-    }
-    else if (event.charCode == 73) {
-        out += 7;
-    }
-    document.querySelector('.out-8').innerHTML += out;
-}
-let out = 0;
-document.querySelector('.i-9').onkeydown = function (event) {
-    if (event.keyCode == 40) {
-        out++
-        return true;
-    }
-    document.querySelector('.out-9').innerHTML = out;
-}
+document.querySelector('.div-7').addEventListener('touchstart', t7);
 
-let imgWidth = document.querySelector('img').clientWidth;
-let imgHeight = document.querySelector('img').clientHeight;
-function t10(event) {
-    if (event.keyCode == 37 || event.keyCode == 39) {
-        imgWidth++
-    }
-    else if (event.keyCode == 38 || event.keyCode == 40) {
-        imgHeight++
-    }
-    document.querySelector('img').style.width = imgWidth + 'px';
-    document.querySelector('img').style.height = imgHeight + 'px';
+a8 = ['red', 'green', 'blue', 'orange', 'pink', 'yellow']
+function t8() {
+    let random = Math.floor(Math.random() * a8.length);
+    document.querySelector('.div-8').style.background = a8[random];
 }
-document.querySelector('.i-10').onkeydown = t10;
+document.querySelector('.div-8').addEventListener('touchstart', t8);
 
-
-let keys = [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7
-]
-function createKeyboard() {
-    let out = '';
-    for (let key of keys) {
-        out += `<div class = 'symb symb-${key}'>${key}</div>`;
-    }
-    document.querySelector('.keyboard').innerHTML = out;
+function t9(event) {
+    document.querySelector(".out-9").innerHTML = event.touches.length;
 }
-createKeyboard()
+document.querySelector(".div-9").ontouchstart = t9;
+
+let w = 75;
+function t10() {
+    document.querySelector('.div-10').style.width = w + 'px';
+    document.querySelector('.div-10').style.height = w + 'px';
+    w++;
+}
+document.querySelector('.div-10').addEventListener('touchmove', t10);
 
 function t11(event) {
-    if (event.type == 'keydown') {
-        document.querySelectorAll('.symb').forEach((symb) => {
-            if (symb.innerHTML == event.key || symb.innerHTML == event.code) {
-                symb.classList.add('active');
-            }
-        });
-    } else if (event.type == 'keyup') {
-        let elem = document.querySelector('.active');
-        elem.classList.remove('active');
-    }
+    document.querySelector(".out-11").innerHTML = `x ${event.layerX} <br> y ${event.layerY}`;
 }
-document.querySelector('.i-11').addEventListener('keyup', t11);
-document.querySelector('.i-11').addEventListener('keydown', t11);
+document.querySelector(".div-11").ontouchstart = t11;
+
+const images = document.querySelectorAll('.img-12-min');
+let count = 0; // переменная, которая указывает на номер активного изображения в images
+
+let a12 = document.querySelector('.img-12-max');
+
+const next = document.querySelector('.next');
+next.ontouchend = nextFunction;
+
+const prev = document.querySelector('.prev');
+prev.ontouchend = prevFunction;
+
+const reset = document.querySelector('.reset');
+reset.ontouchend = resetFunction;
+
+function nextFunction() {
+    if (count == 5) {
+        count = -1;
+        images[5].classList.remove('active-img');
+        images[0].classList.add('active-img');
+        a12.src = images[0].src;
+    }
+    count++;
+    images[count - 1].classList.remove('active-img');
+    images[count].classList.add('active-img');
+    a12.src = images[count].src;
+
+}
+
+function prevFunction() {
+    if (count == 0) {
+        count = 6;
+        images[0].classList.remove('active-img');
+        images[5].classList.add('active-img');
+        a12.src = images[5].src;
+    }
+    count--;
+    images[count + 1].classList.remove('active-img');
+    images[count].classList.add('active-img');
+    a12.src = images[count].src;
+}
+
+function resetFunction() {
+    for (let item of images) {
+        item.classList.remove('active-img');
+        images[0].classList.add('active-img');
+        a12.src = images[0].src;
+    }
+    count = 0;
+}
+
+
+
+
 
 
