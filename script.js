@@ -88,13 +88,13 @@ document.querySelector('.i-10').onkeydown = t10;
 
 
 let keys = [
-    'z',
-    'x',
-    'c',
-    'v',
-    'b',
-    'n',
-    'm'
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
 ]
 function createKeyboard() {
     let out = '';
