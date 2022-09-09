@@ -1,73 +1,68 @@
 function t1() {
-    let a = 22;
-    try {
-        let c = a + d;
-    }
-    catch {
-        document.querySelector('.out-1').innerHTML += 1;
-    }
-
-
+    localStorage.setItem('5', 11);
+    localStorage.getItem('5');
 }
 document.querySelector('.b-1').onclick = t1;
 
 function t2() {
-    let a = 4;
-    let b = 5;
-    try {
-        document.querySelector('.out-2222222').innerHTML = a * b;
-    }
-    catch (err) {
-        console.log(err);
-        document.querySelector('.out-2').innerHTML = a * b;
-    }
+    a2 = [7, 6, 5]
+    localStorage.setItem('a2', JSON.stringify(a2));
+    let arr = localStorage.getItem('a2');
+    arr = JSON.parse(arr);
 }
-
 document.querySelector('.b-2').onclick = t2;
 
 function t3() {
-    let a = 4;
-    let b = 5;
-    try {
-        document.querySelector('.out-3').innerHTML = a * b;
-    }
-    catch (err) {
-        let tag = document.createElement("div");
-        tag.innerHTML = a + b;
-        myDiv = document.getElementById("out-3");
-        document.body.insertBefore(tag, myDiv);
-    }
+    let out = '';
+    let a = localStorage.getItem('a2');
+    a = JSON.parse(a);
+    a.forEach(element => {
+        out += `a2 ${element} <br>`;
+    });
+    document.querySelector('.out-3').innerHTML = out;
 }
 document.querySelector('.b-3').onclick = t3;
 
-let a = [2, 3, 4];
-
 function t4() {
-    try {
-        a.push(7);
-    }
-    catch (err) {
-        a = 0;
-        document.querySelector('.out-4').innerHTML = a;
-    }
-    document.querySelector('.out-4').innerHTML = a;
+    a4 = { hello: 'world', hi: 'mahai' }
+    localStorage.setItem('a4', JSON.stringify(a4));
+    let arr = localStorage.getItem('a4');
+    arr = JSON.parse(arr);
 }
-
 document.querySelector('.b-4').onclick = t4;
 
-
 function t5() {
-    let p = document.querySelectorAll('p');
-    try {
-        p.push('p');
+    let out = '';
+    let a = localStorage.getItem('a4');
+    a = JSON.parse(a);
+    for (let key in a) {
+        out += key + ': ' + a[key] + '<br>';
     }
-    catch(err) {
-        a = 0
-        document.querySelector('.out-5').innerHTML = a;
-    }
-    finally {
-        document.querySelector('.out-5-1').innerHTML = 'finally';
-    }
+    document.querySelector('.out-5').innerHTML = out;
 }
-
 document.querySelector('.b-5').onclick = t5;
+
+function t6() {
+    localStorage.clear();
+}
+document.querySelector('.b-6').onclick = t6;
+
+a7 = [];
+function t7() {
+    let a = document.querySelector('.i-7').value;
+    a7.push(a);
+	localStorage.setItem('a7', JSON.stringify(a7));
+	document.querySelector('.i-7').value = '';
+}
+document.querySelector('.b-7').onclick = t7;
+
+function t8() {
+    let a = localStorage.getItem('a7');
+    a = JSON.parse(a);
+    a.pop();
+    localStorage.setItem('a7', a);
+}
+document.querySelector('.b-8').onclick = t8;
+
+
+	
