@@ -11,81 +11,86 @@ let getData = [
     'action=9&m=1&d=1&y=1',
 ]
 
+function f1() {
+    let a = new Promise((resolve, reject) => {
+        fetch(`http://localhost:8888/index2.php?auth=${key}&${data}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            }
+        })
+            .then(data => resolve(data.text()))
+    })
+
+    let b = new Promise((resolve, reject) => {
+        fetch(`http://localhost:8888/index2.php?auth=${key}&${dataP}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            }
+        })
+            .then(data => resolve(data.text()))
+    })
+    Promise.all([a, b]).then(value => {
+        console.log(value);
+        document.querySelector(out).innerHTML = value[0];
+        document.querySelector(outP).innerHTML = value[1];
+        if (value[1].indexOf('https') > -1) {
+            document.querySelector(outP).innerHTML = `<img src="${value[1]}" style="width:50px;">`
+        }
+    });
+}
+
 document.querySelector('.b-1').onclick = () => {
     out = ['.out-1']
     data = [getData[0]];
-    f1(out, data);
-}
 
+    outP = ['.out-1-1']
+    dataP = [getData[1]];
+
+    f1(out, data, outP, dataP);
+}
 
 document.querySelector('.b-2').onclick = () => {
     out = ['.out-2']
-    data = [getData[1]];
-    f1(out, data);
+    data = [getData[2]];
+
+    outP = ['.out-2-2']
+    dataP = [getData[3]];
+
+
+    f1(out, data, outP, dataP);
 }
 
 document.querySelector('.b-3').onclick = () => {
     out = ['.out-3']
-    data = [getData[2]];
-    f1(out, data);
+    data = [getData[4]];
+
+    outP = ['.out-3-3']
+    dataP = [getData[5]];
+
+
+    f1(out, data, outP, dataP);
 }
 
 document.querySelector('.b-4').onclick = () => {
+    
+    outP = ['.out-4-4']
+    dataP = [getData[6]];
+
     out = ['.out-4']
-    data = [getData[3]];
-    f1(out, data);
+    data = [getData[7]];
+
+
+    f1(out, data, outP, dataP);
 }
 
 document.querySelector('.b-5').onclick = () => {
     out = ['.out-5']
-    data = [getData[4]];
-    f1(out, data);
-}
-
-document.querySelector('.b-6').onclick = () => {
-    out = ['.out-6']
-    data = [getData[5]];
-    f1(out, data);
-}
-
-document.querySelector('.b-7').onclick = () => {
-    out = ['.out-7']
-    data = [getData[6]];
-    f2(out, data);
-}
-
-document.querySelector('.b-8').onclick = () => {
-    out = ['.out-8']
-    data = [getData[7]];
-    f1(out, data);
-}
-
-document.querySelector('.b-9').onclick = () => {
-    out = ['.out-9']
     data = [getData[8]];
-    f1(out, data);
-}
 
-function f1() {
-    fetch(`http://localhost:8888/index2.php?auth=${key}&${data}`)
-        .then(data => data.text())
-        .then(data => {
-            document.querySelector(out).innerHTML = data;
-        })
-}
-function f2() {
-    fetch(`http://localhost:8888/index2.php`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: `auth=${key}&${data}`,
-    })
-        .then(response => response.text())
-        .then(response => {
-            document.querySelector(out).innerHTML = response;
-            if (response.indexOf('https') > -1) {
-                document.querySelector(out).innerHTML = `<img src="${response}" style="width:50px;">`
-            }
-        })
+    outP = ['.out-5-5']
+    dataP = [getData[8]];
+
+    f1(out, data, outP, dataP);
 }
