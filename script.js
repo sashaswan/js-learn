@@ -1,96 +1,108 @@
-let key = ['zhrgB3DxC8LoG7Gcilzg'];
-let getData = [
-    'action=1',
-    'action=2&name=Alex',
-    'action=3&num1=10&num2=10',
-    'action=4&num1=1&num2=100',
-    'action=5',
-    'action=6&num1=1&num2=10',
-    'action=7',
-    'action=8&year=2001',
-    'action=9&m=1&d=1&y=1',
+imgLink = [
+    'https://dmrentalcar.ae/storage/catalogs/1-Lamborghini%20Urus%202021.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Geneva_MotorShow_2013_-_Lamborghini_Veneno_1.jpg/1200px-Geneva_MotorShow_2013_-_Lamborghini_Veneno_1.jpg'
 ]
 
-function f1() {
-    let a = new Promise((resolve, reject) => {
-        fetch(`http://localhost:8888/index2.php?auth=${key}&${data}`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            }
-        })
-            .then(data => resolve(data.text()))
-    })
+class Goods {
+    constructor(name, amount) {
+        this.name = name;
+        this.amount = amount;
+    }
+    draw() {
+        let div = document.createElement('div');
 
-    let b = new Promise((resolve, reject) => {
-        fetch(`http://localhost:8888/index2.php?auth=${key}&${dataP}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            }
-        })
-            .then(data => resolve(data.text()))
-    })
-    Promise.all([a, b]).then(value => {
-        console.log(value);
-        document.querySelector(out).innerHTML = value[0];
-        document.querySelector(outP).innerHTML = value[1];
-        if (value[1].indexOf('https') > -1) {
-            document.querySelector(outP).innerHTML = `<img src="${value[1]}" style="width:50px;">`
+        let elem = document.createElement('p');
+        elem.innerText = this.name;
+        div.append(elem);
+
+        let img = document.createElement('img');
+        img.src = this.image;
+        img.style.width = 500 + 'px';
+        div.append(img);
+
+        let amnt = document.createElement('p');
+        amnt.innerHTML = this.amount;
+        div.append(amnt);
+
+        return div;
+    }
+}
+
+class GoodsImg extends Goods {
+    constructor(name, amount, image, sale) {
+        super(name, amount);
+        this.image = image;
+        this.sale = 'Sale ' + sale;
+    }
+    draw() {
+        let div = super.draw();
+        let p = document.createElement('p');
+        p.innerText = this.sale;
+        div.append(p);
+        return div;
+    }
+}
+
+let goods2 = new GoodsImg('Lambo Urus', 50, `${imgLink[0]}`, true);
+document.querySelector('.out-3').append(goods2.draw());
+
+let goods3 = new GoodsImg('Lambo Veneno', 5, `${imgLink[1]}`, false);
+document.querySelector('.out-4').append(goods3.draw());
+
+
+class Valid {
+	constructor(email, password,) {
+		this.email = email;
+		this.password = password;
+		this.isValid = false;
+	}
+	validate() {
+		if (this.password.length >= 6) {
+			this.isValid = true;
+		}
+		else {
+			this.isValid = false;
+		}
+		return this.isValid;
+	}
+}
+
+let valid = new Valid('seem', '12345786');
+valid.validate();
+console.log(valid.isValid);
+
+let invalid = new Valid('sam', '12345');
+invalid.validate();
+console.log(invalid.isValid);
+
+class Valid2 extends Valid {
+	constructor(email, password, emailError, passwordError) {
+		super(email, password, emailError, passwordError);
+		this.emailError = '';
+		this.passwordError = '';
+	}
+	validate() {
+        super.validate();
+		super.validate();
+		if (this.isValid == false) {
+			this.passwordError = 'min length 6';
+			return false;
+		}
+        if(this.email == 0) {
+            this.isValid = false;
+			this.emailError = 'email empty';
+			return false;
         }
-    });
+        return true;
+	}
 }
 
-document.querySelector('.b-1').onclick = () => {
-    out = ['.out-1']
-    data = [getData[0]];
+let emailValid = new Valid2('fhgjfjhgf', '7834634786');
+emailValid.validate();
+console.log(emailValid);
 
-    outP = ['.out-1-1']
-    dataP = [getData[1]];
-
-    f1(out, data, outP, dataP);
-}
-
-document.querySelector('.b-2').onclick = () => {
-    out = ['.out-2']
-    data = [getData[2]];
-
-    outP = ['.out-2-2']
-    dataP = [getData[3]];
+let emailInValid = new Valid2('fghjfghjf', '78435634786');
+emailInValid.validate();
+console.log(emailInValid);
 
 
-    f1(out, data, outP, dataP);
-}
-
-document.querySelector('.b-3').onclick = () => {
-    out = ['.out-3']
-    data = [getData[4]];
-
-    outP = ['.out-3-3']
-    dataP = [getData[5]];
-
-
-    f1(out, data, outP, dataP);
-}
-
-document.querySelector('.b-4').onclick = () => {
-    
-    outP = ['.out-4-4']
-    dataP = [getData[6]];
-
-    out = ['.out-4']
-    data = [getData[7]];
-
-
-    f1(out, data, outP, dataP);
-}
-
-document.querySelector('.b-5').onclick = () => {
-    out = ['.out-5']
-    data = [getData[8]];
-
-    outP = ['.out-5-5']
-    dataP = [getData[8]];
-
-    f1(out, data, outP, dataP);
-}
